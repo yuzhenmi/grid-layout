@@ -246,8 +246,13 @@ GridLayout.Node = function() {
 	this.connections = [];
 };
 
+/* Constructor for Connection */
+GridLayout.Connection = function(targetNode) {
+	this.targetNode = targetNode;
+};
+
 /* Connects two nodes by mutually adding each other to the connections property */
-GridLayout.connectNodes(node1, node2) {
-	node1.connections.push({targetNode: node2});
-	node2.connections.push({targetNode: node1});
+GridLayout.connectNodes = function(node1, node2) {
+	node1.connections.push(new GridLayout.Connection(node2));
+	node2.connections.push(new GridLayout.Connection(node1));
 };
