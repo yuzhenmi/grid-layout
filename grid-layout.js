@@ -240,3 +240,14 @@ GridLayout.findDistanceBetweenNodes = function(node1, node2, maxDistance) {
 		return distance + 1;
 	}
 };
+
+/* Constructor for Node */
+GridLayout.Node = function() {
+	this.connections = [];
+};
+
+/* Connects two nodes by mutually adding each other to the connections property */
+GridLayout.connectNodes(node1, node2) {
+	node1.connections.push({targetNode: node2});
+	node2.connections.push({targetNode: node1});
+};
