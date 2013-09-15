@@ -12,10 +12,13 @@ Instructions:
 </ul>
 
 Example:
-<pre><code>var nodes = [{},{},{},{}];
-nodes[0].connections = [{targetNode:nodes[1]}];
-nodes[1].connections = [{targetNode:nodes[0]}];
-nodes[2].connections = [];
-nodes[3].connections = [];
+<pre><code>var nodes = [];
+for (var n = 0; n &#60 5; n++) {
+    nodes.push(new GridLayout.Node());
+}
+GridLayout.connectNodes(nodes[0], nodes[1]);
+GridLayout.connectNodes(nodes[2], nodes[3]);
+GridLayout.connectNodes(nodes[1], nodes[2]);
+GridLayout.connectNodes(nodes[0], nodes[3]);
 var gridLayout = new GridLayout(nodes);
 console.log(gridLayout.generate3DLayout());   //log results</code></pre>
