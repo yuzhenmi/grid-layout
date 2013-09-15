@@ -132,7 +132,7 @@ GridLayout.prototype.generate3DLayout = function() {
 	}
 	
 	return nodes;
-}
+};
 
 /* Randomly positions a node in 3D grid */
 GridLayout.randomlyPositionNodeFor3D = function(nodeIndex, nodes, grid) {
@@ -148,13 +148,13 @@ GridLayout.randomlyPositionNodeFor3D = function(nodeIndex, nodes, grid) {
 		y: y,
 		z: z
 	};
-}
+};
 
 /* Calculates the cost between two nodes */
 GridLayout.calculateCostBetweenNodesFor3D = function(node1, node2, weight) {
 	var distance = Math.abs(node1.position.x - node2.position.x) + Math.abs(node1.position.y - node2.position.y) + Math.abs(node1.position.z - node2.position.z);
 	return weight / distance / distance;
-}
+};
 
 /* Finds the costs for a node */
 GridLayout.findNodeCostsFor3D = function(nodeIndex, nodes, weightMatrix) {
@@ -168,7 +168,7 @@ GridLayout.findNodeCostsFor3D = function(nodeIndex, nodes, weightMatrix) {
 		costs.push(GridLayout.calculateCostBetweenNodesFor3D(node, nodes[nodeIndex + n + 1], weightMatrix[nodeIndex][n]));
 	}
 	return costs;
-}
+};
 
 /* Gets the total cost of a node */
 GridLayout.getNodeTotalCostForGrid = function(nodeIndex, costMatrix) {
@@ -181,7 +181,7 @@ GridLayout.getNodeTotalCostForGrid = function(nodeIndex, costMatrix) {
 		totalCost += costMatrix[nodeIndex][n];
 	}
 	return totalCost;
-}
+};
 
 /* Updates costs of node specified by nodeIndex */
 GridLayout.updateNodeCostsForGrid = function(nodeIndex, costs, costMatrix) {
@@ -191,7 +191,7 @@ GridLayout.updateNodeCostsForGrid = function(nodeIndex, costs, costMatrix) {
 	for (n = 0; n < costs.length - nodeIndex; n++) {
 		costMatrix[nodeIndex][n] = costs[n + nodeIndex];
 	}
-}
+};
 
 /* Generate weight matrix */
 GridLayout.generateWeightMatrix = function(nodes) {
@@ -217,7 +217,7 @@ GridLayout.generateWeightMatrix = function(nodes) {
 		}
 	}
 	return weightMatrix;
-}
+};
 
 /* Tries to find the shortest distance less than or equal to maxDistance between node1 and node */
 GridLayout.findDistanceBetweenNodes = function(node1, node2, maxDistance) {
@@ -239,4 +239,4 @@ GridLayout.findDistanceBetweenNodes = function(node1, node2, maxDistance) {
 	else {
 		return distance + 1;
 	}
-}
+};
