@@ -126,9 +126,9 @@ GridLayout.prototype.generate3DLayout = function() {
 
 	/* Transform grid coordinates into world coordinates */
 	for (n = 0; n < nodes.length; n++) {
-		nodes[n].position.x = nodes[n].position.x - gridSize * 0.5;
-		nodes[n].position.y = nodes[n].position.y - gridSize * 0.5;
-		nodes[n].position.z = nodes[n].position.z - gridSize * 0.5;
+		nodes[n].position.x = nodes[n].position.x - Math.floor(gridSize * 0.5);
+		nodes[n].position.y = nodes[n].position.y - Math.floor(gridSize * 0.5);
+		nodes[n].position.z = nodes[n].position.z - Math.floor(gridSize * 0.5);
 	}
 	
 	return nodes;
